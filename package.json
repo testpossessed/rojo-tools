@@ -1,8 +1,18 @@
 {
 	"name": "rojo-tools",
 	"displayName": "Rojo Tools",
-	"description": "Provides tools for managing Rojo project definitions and contents at the file system level",
+	"description": "Provides tools for managing Rojo project definitions and contents at the file system level reducing the need to understand the meta model of Rojo",
 	"version": "1.0.0",
+	"author": {
+		"name": "Bootneck Tech"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/testpossessed/rojo-tools"
+	},
+	"bugs": {
+		"url": "https://github.com/testpossessed/rojo-tools/issues"
+	},
 	"engines": {
 		"vscode": "^1.63.0"
 	},

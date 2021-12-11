@@ -61,3 +61,6 @@ None at this point.
 ## Release Notes
 
 Changes are documented in CHANGELOG
+
+## Comments
+Bear in mind that this extension (at least in it's initial state) is built to suit the way I work.  If you have any suggestions for improvement or find any issues please log an issue via the [GitHub Issues](https://github.com/testpossessed/rojo-tools/issues) page for the extension.
