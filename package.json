@@ -1,0 +1,136 @@
+{
+	"name": "rojo-tools",
+	"displayName": "Rojo Tools",
+	"description": "Provides tools for managing Rojo project definitions and contents at the file system level",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:rojoTools.addModel",
+		"onCommand:rojoTools.addPart",
+		"onCommand:rojoTools.convertToModel",
+		"onCommand:rojoTools.convertToPart",
+		"onCommand:rojoTools.convertToScript"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"category": "Rojo Tools",
+				"command": "rojoTools.addModel",
+				"enablement": "explorerResourceIsFolder",
+				"title": "Add Model"
+			},
+			{
+				"category": "Rojo Tools",
+				"command": "rojoTools.addPart",
+				"enablement": "explorerResourceIsFolder",
+				"title": "Add Part"
+			},
+			{
+				"category": "Rojo Tools",
+				"command": "rojoTools.convertToModel",
+				"enablement": "explorerResourceIsFolder",
+				"title": "Convert To Model"
+			},
+			{
+				"category": "Rojo Tools",
+				"command": "rojoTools.convertToPart",
+				"enablement": "explorerResourceIsFolder",
+				"title": "Convert To Part"
+			},
+			{
+				"category": "Rojo Tools",
+				"command": "rojoTools.convertToScript",
+				"enablement": "explorerResourceIsFolder",
+				"title": "Convert To Script"
+			}
+		],
+		"menus": {
+			"commandPalette": [{
+				"command": "rojoTools.addModel",
+				"when": "explorerResourceIsFolder"
+			},
+			{
+				"command": "rojoTools.addPart",
+				"when": "explorerResourceIsFolder"
+			},
+			{
+				"command": "rojoTools.convertToModel",
+				"when": "explorerResourceIsFolder"
+			},
+			{
+				"command": "rojoTools.convertToPart",
+				"when": "explorerResourceIsFolder"
+			},
+			{
+				"command": "rojoTools.convertToScript",
+				"when": "explorerResourceIsFolder"
+			}],
+			"explorer/context": [
+				{
+					"submenu": "rojoTools.submenu"
+				}
+			],
+			"rojoTools.submenu": [
+				{
+					"command": "rojoTools.addModel",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rojoTools.addPart",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rojoTools.convertToModel",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rojoTools.convertToPart",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "rojoTools.convertToScript",
+					"when": "explorerResourceIsFolder"
+				}
+			]
+		},
+		"submenus": [
+			{
+				"id": "rojoTools.submenu",
+				"label": "Rojo Tools"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"@vscode/test-electron": "^1.6.2",
+		"eslint": "^8.4.1",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"ts-loader": "^9.2.5",
+		"typescript": "^4.4.4",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0"
+	}
+}
